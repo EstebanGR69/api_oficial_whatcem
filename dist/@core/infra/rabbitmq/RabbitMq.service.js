@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RabbitMQService = void 0;
 const common_1 = require("@nestjs/common");
-const amqplib_1 = require("amqplib");
 class RabbitMQService {
     constructor() {
         this.logger = new common_1.Logger(`${RabbitMQService.name}`);
@@ -20,8 +19,6 @@ class RabbitMQService {
             if (!this.isEnabled)
                 return;
             this.url = process.env.RABBITMQ_URL;
-            this.connection = await (0, amqplib_1.connect)(this.url);
-            this.channel = await this.connection.createChannel();
             this.logger.log('📡 Conexão com RabbitMQ estabelecida com sucesso');
         }
         catch (error) {
@@ -79,7 +76,6 @@ class RabbitMQService {
         if (!this.isEnabled)
             return;
         await this.channel.close();
-        await this.connection.close();
     }
 }
 exports.RabbitMQService = RabbitMQService;
