@@ -19,7 +19,9 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { Public } from 'src/@core/guard/auth.decorator';
 
+@Public()
 @Controller('v1/companies')
 @ApiBearerAuth()
 @ApiTags('Empresas')
@@ -39,7 +41,6 @@ export class CompaniesController {
   @ApiResponse({ status: 400, description: 'Erro ao listar empresas' })
   @ApiResponse({ status: 200, description: 'Mostrar dados da empresas' })
   async all() {
-    
     return await this.service.all();
   }
 

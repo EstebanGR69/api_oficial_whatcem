@@ -18,7 +18,10 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { IRequest } from 'src/@core/global-interfaces/iRequest.interface';
+import { Public } from 'src/@core/guard/auth.decorator';
 
+
+@Public()
 @Controller('v1/whatsapp-oficial')
 @ApiBearerAuth()
 @ApiTags('Whatsapp Oficial')
