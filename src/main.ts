@@ -12,7 +12,9 @@ import {
 
 async function bootstrap() {
   const logger = new Logger('MainServer');
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: ['log', 'error', 'warn', 'debug', 'verbose'],
+  });
 
   app.enableCors();
 
