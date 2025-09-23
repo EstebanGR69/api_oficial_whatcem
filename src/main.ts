@@ -45,7 +45,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config, options);
   SwaggerModule.setup('swagger', app, document);
 
-  await app.listen(3030);
-  logger.log(`🚀 Servidor API Oficial iniciado na porta 3030`);
+  const port = process.env.PORT ? Number(process.env.PORT) : 6000;
+  await app.listen(port);
+  logger.log(`🚀 Servidor API Oficial iniciado na porta ${port}`);
 }
 bootstrap();
