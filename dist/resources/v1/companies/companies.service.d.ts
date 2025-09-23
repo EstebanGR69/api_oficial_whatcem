@@ -15,15 +15,7 @@ export declare class CompaniesService {
         deleted_at: Date | null;
         token: string;
     }>;
-    all(): Promise<{
-        name: string;
-        idEmpresaMult100: number;
-        id: number;
-        create_at: Date | null;
-        update_at: Date | null;
-        deleted_at: Date | null;
-        token: string;
-    }[]>;
+    all(): Promise<void>;
     create(dto: CreateCompanyDto): Promise<{
         name: string;
         idEmpresaMult100: number;

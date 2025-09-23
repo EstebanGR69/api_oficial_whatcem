@@ -13,15 +13,7 @@ export declare class CompaniesController {
         deleted_at: Date | null;
         token: string;
     }>;
-    all(): Promise<{
-        name: string;
-        idEmpresaMult100: number;
-        id: number;
-        create_at: Date | null;
-        update_at: Date | null;
-        deleted_at: Date | null;
-        token: string;
-    }[]>;
+    all(): Promise<void>;
     create(body: CreateCompanyDto): Promise<{
         name: string;
         idEmpresaMult100: number;

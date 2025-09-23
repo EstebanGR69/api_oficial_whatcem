@@ -35,7 +35,13 @@ let CompaniesService = CompaniesService_1 = class CompaniesService {
     }
     async all() {
         try {
-            return await this.prisma.company.findMany();
+            const empresas = await this.prisma.company.findMany();
+            if (empresas) {
+                this.logger.log("Todo funcionó bien xdxdxd ", empresas);
+            }
+            else {
+                this.logger.error("Puto ", empresas);
+            }
         }
         catch (error) {
             this.logger.error(`one - ${error.message}`);
