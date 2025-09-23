@@ -25,8 +25,8 @@ export class RabbitMQService {
 
       this.url = process.env.RABBITMQ_URL;
 
-      this.connection = await connect(this.url);
-      this.channel = await this.connection.createChannel();
+      //this.connection = await connect(this.url);
+      //this.channel = await this.connection.createChannel();
       this.logger.log('📡 Conexão com RabbitMQ estabelecida com sucesso');
     } catch (error) {
       this.logger.error(`❌ Erro ao conectar com RabbitMQ: ${error}`);
@@ -110,6 +110,6 @@ export class RabbitMQService {
   async close(): Promise<void> {
     if (!this.isEnabled) return;
     await this.channel.close();
-    await this.connection.close();
+    //await this.connection.close();
   }
 }
