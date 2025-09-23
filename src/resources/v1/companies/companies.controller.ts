@@ -39,6 +39,7 @@ export class CompaniesController {
   @ApiResponse({ status: 400, description: 'Erro ao listar empresas' })
   @ApiResponse({ status: 200, description: 'Mostrar dados da empresas' })
   async all() {
+    
     return await this.service.all();
   }
 
