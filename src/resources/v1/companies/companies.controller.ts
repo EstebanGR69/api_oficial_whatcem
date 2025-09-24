@@ -24,7 +24,6 @@ import { Public } from 'src/@core/guard/auth.decorator';
 @Controller('v1/companies')
 @ApiBearerAuth()
 @ApiTags('Empresas')
-@Public()
 export class CompaniesController {
   constructor(private readonly service: CompaniesService) {}
 
