@@ -4,6 +4,6 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   getStatusServer(): string {
     const currentTime = new Date().toLocaleTimeString();
-    return `API está online! | Horário atual: ${currentTime}`;
+    return `API funcionando Correctamente | Horário atual: ${currentTime}`;
   }
 }
