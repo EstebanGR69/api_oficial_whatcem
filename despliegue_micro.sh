@@ -29,5 +29,8 @@
     echo "☁️  Sincronizando archivos con el servidor en $IP_SERVIDOR..."
     rsync -avz --delete ./$CARPETA_BUILD/ $USUARIO_SSH@$IP_SERVIDOR:$RUTA_DESTINO/$CARPETA_BUILD/
 
+    echo "🔄 Reiniciando la aplicación con PM2..."
+    ssh $USUARIO_SSH@$IP_SERVIDOR "pm2 reload api_oficial"
+
     echo "✅ ¡Despliegue completado exitosamente!"
     echo "Tu aplicación está ahora en: $RUTA_DESTINO/$CARPETA_BUILD"

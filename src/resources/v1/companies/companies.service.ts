@@ -28,12 +28,8 @@ export class CompaniesService {
   async all() {
     try {
 
-      const empresas=  await this.prisma.company.findMany();
-      if(empresas){
-        this.logger.log("Todo funcionó bien xdxdxd ",empresas)
-      }else{
-        this.logger.error("Puto ",empresas)
-      }
+      return await this.prisma.company.findMany();
+
     } catch (error: any) {
       this.logger.error(`one - ${error.message}`);
       throw new AppError(error.message, HttpStatus.BAD_REQUEST);

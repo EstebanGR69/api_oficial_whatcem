@@ -14,6 +14,8 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Public } from '../../../@core/guard/auth.decorator';
 import { IWebhookWhatsApp } from './interfaces/IWebhookWhatsApp.inteface';
 
+
+
 @Controller('v1/webhook')
 @ApiTags('Webhook')
 export class WebhookController {
@@ -21,14 +23,14 @@ export class WebhookController {
 
   @Public()
   @Post(':companyId/:conexaoId')
-  @ApiOperation({ summary: 'Webhook para evento de empresa e conexão' })
+  @ApiOperation({ summary: 'Webhook para evento de empresa conectada' })
   @ApiResponse({
     status: 400,
-    description: 'Retorna o erro para quem esta chamando',
+    description: 'Retorna error de quien está trabajando',
   })
   @ApiResponse({
     status: 200,
-    description: 'Retorna somente um true caso tenha sucesso',
+    description: 'Retorna true en caso de encontrar coincidencia',
   })
   async webhookCompanyConexao(
     @Param('companyId') companyId: number,

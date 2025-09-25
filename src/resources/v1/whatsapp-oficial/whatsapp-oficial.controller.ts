@@ -21,10 +21,10 @@ import { IRequest } from 'src/@core/global-interfaces/iRequest.interface';
 import { Public } from 'src/@core/guard/auth.decorator';
 
 
+@Public()
 @Controller('v1/whatsapp-oficial')
 @ApiBearerAuth()
 @ApiTags('Whatsapp Oficial')
-@Public()
 export class WhatsappOficialController {
   constructor(
     private readonly whatsappOficialService: WhatsappOficialService,
