@@ -99,10 +99,12 @@ export class SendMessageWhatsappService extends BaseService<SendMessageWhatsApp>
       const data: CreateSendMessageWhatsappDto = JSON.parse(dados_mensagem);
       const regex = /^\+55\d{2}\d{8,9}$/;
 
+      console.log("Data obtendia para enviar un mensaje desde la IA ",data)
+
       if (!data.to)
         throw new Error('Necessário informar o número do destinatario');
-      if (!regex.test(data.to))
-        throw new Error('o número não está no padrão do whatsapp');
+      /* if (!regex.test(data.to))
+        throw new Error('o número não está no padrão do whatsapp'); */
 
       const whats = await this.prisma.whatsappOficial.findFirst({
         where: { token_mult100: token },
@@ -327,6 +329,11 @@ export class SendMessageWhatsappService extends BaseService<SendMessageWhatsApp>
       );
 
       entity.idMessageWhatsApp = res.messages.map((m) => m.id);
+
+
+      console.log("respuesta de funcion sendMessage ",res)
+      console.log("Entodad bien vergas a crear ",entity)
+
 
       return await this.prisma.sendMessageWhatsApp.create({ data: entity });
     } catch (error: any) {
